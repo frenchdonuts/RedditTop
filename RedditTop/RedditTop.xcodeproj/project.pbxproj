@@ -21,13 +21,17 @@
 		54073329201F034F00F93451 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54073328201F034F00F93451 /* Link.swift */; };
 		5407332B201F03A000F93451 /* Votable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5407332A201F03A000F93451 /* Votable.swift */; };
 		5407332D201F03B000F93451 /* Created.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5407332C201F03B000F93451 /* Created.swift */; };
-		54D2E94C20204641000DAF4F /* ListPager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94B20204641000DAF4F /* ListPager.swift */; };
+		54D2E94C20204641000DAF4F /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94B20204641000DAF4F /* Paginator.swift */; };
 		54D2E95020204CC9000DAF4F /* BasicInMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */; };
 		54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95120204D92000DAF4F /* ImageCache.swift */; };
 		54D2E95420204EDF000DAF4F /* UIImageView+ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95320204EDF000DAF4F /* UIImageView+ImageDownloader.swift */; };
 		54D2E957202050E5000DAF4F /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E956202050E5000DAF4F /* ImageDownloader.swift */; };
 		54D2E95A2020596B000DAF4F /* RedditTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */; };
 		54D2E95C20205993000DAF4F /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95B20205993000DAF4F /* LinkTableViewCell.swift */; };
+		54D2E95E2020681F000DAF4F /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */; };
+		54D2E9632020D24F000DAF4F /* Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E9622020D24F000DAF4F /* Bond.swift */; };
+		54D2E9652020D3B3000DAF4F /* UIKit+Bond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E9642020D3B3000DAF4F /* UIKit+Bond.swift */; };
+		54D2E967202100E5000DAF4F /* DynamicArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E966202100E5000DAF4F /* DynamicArray.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,13 +63,17 @@
 		54073328201F034F00F93451 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		5407332A201F03A000F93451 /* Votable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Votable.swift; sourceTree = "<group>"; };
 		5407332C201F03B000F93451 /* Created.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Created.swift; sourceTree = "<group>"; };
-		54D2E94B20204641000DAF4F /* ListPager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPager.swift; sourceTree = "<group>"; };
+		54D2E94B20204641000DAF4F /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInMemoryImageCache.swift; sourceTree = "<group>"; };
 		54D2E95120204D92000DAF4F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		54D2E95320204EDF000DAF4F /* UIImageView+ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageDownloader.swift"; sourceTree = "<group>"; };
 		54D2E956202050E5000DAF4F /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTopViewModel.swift; sourceTree = "<group>"; };
 		54D2E95B20205993000DAF4F /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
+		54D2E9622020D24F000DAF4F /* Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bond.swift; sourceTree = "<group>"; };
+		54D2E9642020D3B3000DAF4F /* UIKit+Bond.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Bond.swift"; sourceTree = "<group>"; };
+		54D2E966202100E5000DAF4F /* DynamicArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicArray.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,7 @@
 		540732FB201EF5CA00F93451 /* RedditTop */ = {
 			isa = PBXGroup;
 			children = (
+				54D2E95F2020D232000DAF4F /* Bonding */,
 				54D2E955202050D1000DAF4F /* ImageDownloader */,
 				54D2E94E20204CB3000DAF4F /* ImageCache */,
 				54D2E94D20204CAB000DAF4F /* Helpers */,
@@ -181,7 +190,7 @@
 		54D2E94A202045F2000DAF4F /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
-				54D2E94B20204641000DAF4F /* ListPager.swift */,
+				54D2E94B20204641000DAF4F /* Paginator.swift */,
 			);
 			path = Pagination;
 			sourceTree = "<group>";
@@ -217,8 +226,19 @@
 				54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */,
 				540732FE201EF5CA00F93451 /* MainViewController.swift */,
 				54D2E95B20205993000DAF4F /* LinkTableViewCell.swift */,
+				54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		54D2E95F2020D232000DAF4F /* Bonding */ = {
+			isa = PBXGroup;
+			children = (
+				54D2E9622020D24F000DAF4F /* Bond.swift */,
+				54D2E9642020D3B3000DAF4F /* UIKit+Bond.swift */,
+				54D2E966202100E5000DAF4F /* DynamicArray.swift */,
+			);
+			path = Bonding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,18 +346,22 @@
 			files = (
 				5407331D201EF6AB00F93451 /* RedditAPIClient.swift in Sources */,
 				54D2E957202050E5000DAF4F /* ImageDownloader.swift in Sources */,
+				54D2E9652020D3B3000DAF4F /* UIKit+Bond.swift in Sources */,
 				54D2E95C20205993000DAF4F /* LinkTableViewCell.swift in Sources */,
 				5407332B201F03A000F93451 /* Votable.swift in Sources */,
 				5407331F201EF6E300F93451 /* RedditListingsAPIService.swift in Sources */,
 				54073323201EF7C700F93451 /* Listing.swift in Sources */,
+				54D2E95E2020681F000DAF4F /* LoadingTableViewCell.swift in Sources */,
 				5407332D201F03B000F93451 /* Created.swift in Sources */,
+				54D2E9632020D24F000DAF4F /* Bond.swift in Sources */,
 				54D2E95420204EDF000DAF4F /* UIImageView+ImageDownloader.swift in Sources */,
 				54073329201F034F00F93451 /* Link.swift in Sources */,
 				54D2E95020204CC9000DAF4F /* BasicInMemoryImageCache.swift in Sources */,
-				54D2E94C20204641000DAF4F /* ListPager.swift in Sources */,
+				54D2E94C20204641000DAF4F /* Paginator.swift in Sources */,
 				54073327201F01DB00F93451 /* Object.swift in Sources */,
 				540732FF201EF5CA00F93451 /* MainViewController.swift in Sources */,
 				54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */,
+				54D2E967202100E5000DAF4F /* DynamicArray.swift in Sources */,
 				54073325201EFFC700F93451 /* Thing.swift in Sources */,
 				54D2E95A2020596B000DAF4F /* RedditTopViewModel.swift in Sources */,
 				540732FD201EF5CA00F93451 /* AppDelegate.swift in Sources */,

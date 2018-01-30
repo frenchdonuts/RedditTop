@@ -1,8 +1,8 @@
 //
-//  ListPager.swift
+//  LoadingCell.swift
 //  RedditTop
 //
-//  Created by Alexander Kharevich on 1/29/18.
+//  Created by Alexander Kharevich on 1/30/18.
 //  Copyright © 2018 Alexander Kharevich. All rights reserved.
 //
 
