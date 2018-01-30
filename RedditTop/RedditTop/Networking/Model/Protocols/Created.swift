@@ -1,5 +1,5 @@
 //
-//  created.swift
+//  Created.swift
 //  RedditTop
 //
 //  Created by Alexander Kharevich on 1/28/18.
@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol Created {
+    var created: Double { get set }
+    var createdUtc: Double { get set }
+}

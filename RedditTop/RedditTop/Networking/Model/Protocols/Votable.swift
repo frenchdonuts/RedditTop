@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol Votable {
+    var ups: Int { get set }
+    var downs: Int { get set }
+    var likes: Bool? { get set }
+}
+
