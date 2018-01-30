@@ -1,5 +1,5 @@
 //
-//  InMemoryImageCache.swift
+//  BasicInMemoryImageCache.swift
 //  RedditTop
 //
 //  Created by Alexander Kharevich on 1/29/18.
@@ -9,7 +9,8 @@
 import UIKit
 
 class BasicInMemoryImageCache: ImageCache {
-    private var cacheDict: [URL: UIImage] = [:]
+    private static let minimumCapacity = 500
+    private var cacheDict: [URL: UIImage] = Dictionary(minimumCapacity: minimumCapacity)
 
     func image(for url: URL) ->UIImage? {
         return cacheDict[url]
@@ -26,5 +27,9 @@ class BasicInMemoryImageCache: ImageCache {
         set {
             cacheDict[url] = newValue
         }
+    }
+
+    func flush() {
+        cacheDict.removeAll()
     }
 }
