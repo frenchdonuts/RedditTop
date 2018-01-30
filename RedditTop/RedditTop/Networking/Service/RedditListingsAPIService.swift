@@ -9,13 +9,7 @@
 import Foundation
 
 class RedditListingsAPIService {
-    func getTop() {
-
-    }
-}
-
-class RedditTopRequest {
-    enum ListingType: String {
+    enum ListingPeriod: String {
         case hour = "hour"
         case day = "day"
         case week = "week"
@@ -27,13 +21,65 @@ class RedditTopRequest {
         case none = "none"
         case all = "all"
     }
+    static let path = "/top.json"
     static let defaultLimit = 25
     static let maximumLimit = 100
-    var limit: Int = defaultLimit {
-        didSet {
-            limit = min(max(0, limit), RedditListingsAPIService.maximumLimit)
+
+    static func request(url: String, before: String?, after: String?, limit: Int = defaultLimit, t:ListingPeriod = .day) -> URLRequest? {
+        var urlString = url
+        var query:[String] = []
+        query.append("limit=\(limit)")
+        query.append("t=\(t.rawValue)")
+        if let before = before {
+            query.append("before=\(before)")
         }
+        if let after = after {
+            query.append("after=\(after)")
+        }
+        urlString.append("?\(query.joined(separator: "&"))")
+
+        guard let url = URL(string: urlString) else {
+            print("Error: cannot create URL")
+            return nil
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        return request
     }
-    var t: ListingType
-    var show: ListingShowType?
+
+    static func getTop(before: String?, after: String?, limit: Int = defaultLimit, t:ListingPeriod = .day, completion: @escaping ((Thing?, Error?)->Void)) {
+        let urlString = RedditAPIClient.basePath + RedditListingsAPIService.path
+        guard let request = RedditListingsAPIService.request(url: urlString, before: before, after: after) else {
+            print("Can not create request")
+            completion(nil, nil)
+            return
+        }
+        let dataTask = RedditAPIClient.session.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                print("Error: did not receive data")
+                completion(nil, error)
+                return
+            }
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                completion(nil, nil)
+                return
+            }
+            do {
+                if let dataJSON = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] {
+                    let thing = Thing(json: dataJSON)
+                    completion(thing, nil)
+                } else {
+                    print("Couldn't create a listing object from the JSON")
+                    completion(nil, nil)
+                }
+            } catch {
+                completion(nil, error)
+                return
+            }
+        }
+        dataTask.resume()
+    }
 }
