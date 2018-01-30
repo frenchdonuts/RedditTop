@@ -8,6 +8,9 @@
 
 import Foundation
 
-class RedditAPIClient {
-
+class RedditAPIClient: NSObject {
+    static var basePath = "https://reddit.com"
+    static let queue = OperationQueue()
+    static let configuration = URLSessionConfiguration.default
+    static var session = URLSession(configuration: configuration, delegate: nil, delegateQueue: queue)
 }
