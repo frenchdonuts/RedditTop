@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Listing: Object {
+struct Listing: Object {
     var after: String?
     var before: String?
     var count: Int = 0
@@ -18,9 +18,7 @@ class Listing: Object {
         after = json["after"] as? String
         before = json["before"] as? String
         count = json["count"] as? Int ?? 0
-        let childrenDict = json["children"] as? [[String: Any]] ?? []
-        for childrenJson in childrenDict {
-            children.append(Thing(json: childrenJson))
-        }
+        let childrenDicts = json["children"] as? [[String: Any]] ?? []
+        children.append(contentsOf: childrenDicts.map{Thing(json: $0)})
     }
 }
