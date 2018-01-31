@@ -1,5 +1,5 @@
 //
-//  ListPager.swift
+//  Paginator.swift
 //  RedditTop
 //
 //  Created by Alexander Kharevich on 1/29/18.
@@ -15,11 +15,12 @@ struct Cursors {
 
 class Paginator<T> {
     typealias completionHandler = ([T], Cursors?, Error?) -> Void
+    typealias updateHandler = (_ after: String? , _ completion: @escaping completionHandler) -> Void
     var requestInProcess = false
     var items : [T] = []
     var cursors : Cursors? = nil
-    var updateRequest: ((_ startingAt: String?, _ completion: completionHandler) -> Void)?
-    var updatedNotification: ((_ numberOfNewItems: Int) -> Void)?
+    var updateRequest: updateHandler?
+    var onUpdatedHandler: ((_ numberOfNewItems: Int) -> Void)?
     var moreAvailable: Bool {
         return cursors == nil || cursors?.after != nil
     }
@@ -32,10 +33,11 @@ class Paginator<T> {
     }
 
     func reset() {
-        guard self.requestInProcess else { return }
-        self.requestInProcess = true
+        guard !requestInProcess else { return }
 
-        if let request = self.updateRequest {
+        requestInProcess = true
+
+        if let request = updateRequest {
             request(nil) { [weak self]
                 (newItems, newCursors, error) -> Void in
                 guard error == nil else { return }
@@ -43,32 +45,28 @@ class Paginator<T> {
                     strongSelf.requestInProcess = false
                     strongSelf.cursors = newCursors
                     strongSelf.items = newItems
-                    strongSelf.updatedNotification?(newItems.count)
+                    strongSelf.onUpdatedHandler?(newItems.count)
                 }
             }
         }
     }
 
-    func fetchItems(startingAt startIndex: Int = 0) {
+    func fetchItems() {
         guard moreAvailable else { return }
         guard !requestInProcess else { return }
         requestInProcess = true
 
-        if let request = self.updateRequest {
+        if let request = updateRequest {
             request(cursors?.after) {  [weak self]
                 (newItems, newCursors, error) -> Void in
                 if let strongSelf = self {
                     strongSelf.requestInProcess = false
                     guard error == nil else { return }
-                    if newCursors?.before == strongSelf.cursors?.after {
+                    if newCursors?.after != strongSelf.cursors?.after {
                         strongSelf.cursors = newCursors
                         strongSelf.items.append(contentsOf: newItems)
-                        strongSelf.updatedNotification?(newItems.count)
-                    } else {
-                        strongSelf.cursors = newCursors
-                        strongSelf.items = newItems
-                        strongSelf.updatedNotification?(newItems.count)
                     }
+                    strongSelf.onUpdatedHandler?(newItems.count)
                 }
             }
         }
