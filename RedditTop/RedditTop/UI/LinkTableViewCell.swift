@@ -15,39 +15,55 @@ class LinkTableViewCell: UITableViewCell {
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timeAgoLabel: UILabel!
 
+    var onTapImageHandler: (()->Void)?
+    private var tapRecognizer: UITapGestureRecognizer?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        resetUI()
+        setupGestureRecognizer()
+        reset()
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        resetUI()
+        reset()
     }
 
-    private func resetUI() {
+    @objc private func onTapImageAction() {
+        onTapImageHandler?()
+    }
+
+    private func setupGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapImageAction))
+        tapRecognizer.isEnabled = false
+        thumbnailImageView.isUserInteractionEnabled = true
+        thumbnailImageView.addGestureRecognizer(tapRecognizer)
+        self.tapRecognizer = tapRecognizer
+    }
+
+    private func reset() {
+        onTapImageHandler = nil
         thumbnailImageView.cancelDownload()
         thumbnailImageView.image = nil
         titleLabel.text = nil
         commentsLabel.text = nil
         authorLabel.text = nil
         timeAgoLabel.text = nil
+        tapRecognizer?.isEnabled = false
     }
 
     func setup(for link:Link) {
-        var urlString = link.thumbnail
-        switch urlString {
-        case "self":
+        switch link.thumbnail {
+        case "self","default":
             thumbnailImageView.image = UIImage(named:"selfPlaceholder")
-        case "default":
-            thumbnailImageView.image = UIImage(named:"imagePlaceholder")
         case "image":
-            urlString = link.url
-            fallthrough
+            thumbnailImageView.image = UIImage(named:"imagePlaceholder")
+            tapRecognizer?.isEnabled = true
+            break
         default:
-            if let str = urlString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
+            if let str = link.thumbnail.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
                 let path = URL(string: str) {
-                thumbnailImageView.setImage(with: path, placeHolder: UIImage(named:"imagePlaceholder"))
+                thumbnailImageView.setImage(with: path, placeHolder: UIImage(named:"selfPlaceholder"))
             }
             break
         }

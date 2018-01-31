@@ -35,7 +35,7 @@
                         </constraints>
                     </imageView>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This spot on I-80 in Wyoming is known as the Highway to Heaven" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Y-ID-rl5">
-                        <rect key="frame" x="145" y="31.5" width="220" height="59.5"/>
+                        <rect key="frame" x="146" y="28.5" width="199.5" height="59.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
@@ -51,7 +51,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjw-CE-gxM">
-                        <rect key="frame" x="212" y="11" width="42" height="15.5"/>
+                        <rect key="frame" x="209" y="9.5" width="42" height="15.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="13"/>
                         <nil key="textColor"/>
@@ -67,7 +67,7 @@
                         <size key="shadowOffset" width="0.0" height="0.0"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="posted by:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-BJ-hnb">
-                        <rect key="frame" x="146" y="10" width="59" height="17.5"/>
+                        <rect key="frame" x="146" y="10" width="59" height="14.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -92,16 +92,15 @@
                     <constraint firstItem="KSI-s3-exc" firstAttribute="top" secondItem="HDa-d0-Ds2" secondAttribute="top" constant="10" id="HMa-Jv-n2A"/>
                     <constraint firstItem="jd1-Ph-wPS" firstAttribute="leading" secondItem="Uri-8L-dYX" secondAttribute="trailing" constant="9" id="HWF-KY-jjS"/>
                     <constraint firstItem="M5Y-ID-rl5" firstAttribute="top" secondItem="gtb-BJ-hnb" secondAttribute="bottom" constant="4" id="OW1-TH-fI5"/>
-                    <constraint firstAttribute="trailing" secondItem="M5Y-ID-rl5" secondAttribute="trailing" constant="10" id="PM0-5j-thY"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M5Y-ID-rl5" secondAttribute="trailing" constant="10" id="PM0-5j-thY"/>
                     <constraint firstItem="Rjw-CE-gxM" firstAttribute="centerY" secondItem="gtb-BJ-hnb" secondAttribute="centerY" id="T6Z-ju-Z6m"/>
                     <constraint firstItem="gtb-BJ-hnb" firstAttribute="leading" secondItem="Uri-8L-dYX" secondAttribute="trailing" constant="9" id="aDs-B4-1b5"/>
-                    <constraint firstItem="Rjw-CE-gxM" firstAttribute="leading" secondItem="gtb-BJ-hnb" secondAttribute="trailing" constant="7" id="axQ-jv-PCO"/>
+                    <constraint firstItem="Rjw-CE-gxM" firstAttribute="leading" secondItem="gtb-BJ-hnb" secondAttribute="trailing" constant="4" id="axQ-jv-PCO"/>
                     <constraint firstAttribute="bottom" secondItem="OhS-Yv-OWJ" secondAttribute="bottom" constant="1" id="fAH-Uk-u9u"/>
                     <constraint firstItem="KSI-s3-exc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rjw-CE-gxM" secondAttribute="trailing" constant="5" id="gXl-gA-jal"/>
-                    <constraint firstItem="jd1-Ph-wPS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M5Y-ID-rl5" secondAttribute="bottom" constant="9" id="l0N-hF-DCn"/>
-                    <constraint firstItem="Rjw-CE-gxM" firstAttribute="top" secondItem="HDa-d0-Ds2" secondAttribute="topMargin" id="oud-ed-UTQ"/>
+                    <constraint firstItem="jd1-Ph-wPS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M5Y-ID-rl5" secondAttribute="bottom" constant="4" id="l0N-hF-DCn"/>
                     <constraint firstItem="gtb-BJ-hnb" firstAttribute="top" secondItem="HDa-d0-Ds2" secondAttribute="top" constant="10" id="pQp-yE-89k"/>
-                    <constraint firstItem="M5Y-ID-rl5" firstAttribute="leading" secondItem="Uri-8L-dYX" secondAttribute="trailing" constant="8" id="rre-HJ-1Ma"/>
+                    <constraint firstItem="M5Y-ID-rl5" firstAttribute="leading" secondItem="Uri-8L-dYX" secondAttribute="trailing" constant="9" id="rre-HJ-1Ma"/>
                     <constraint firstItem="OhS-Yv-OWJ" firstAttribute="leading" secondItem="HDa-d0-Ds2" secondAttribute="leading" id="vwW-er-7dR"/>
                     <constraint firstAttribute="trailing" secondItem="KSI-s3-exc" secondAttribute="trailing" constant="10" id="xH9-xW-ens"/>
                 </constraints>
