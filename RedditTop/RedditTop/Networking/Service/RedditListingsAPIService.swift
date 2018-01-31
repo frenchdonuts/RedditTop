@@ -28,6 +28,7 @@ class RedditListingsAPIService {
     static func request(url: String, before: String?, after: String?, limit: Int = defaultLimit, t:ListingPeriod = .day) -> URLRequest? {
         var urlString = url
         var query:[String] = []
+        query.append("sort=top")
         query.append("limit=\(limit)")
         query.append("t=\(t.rawValue)")
         if let before = before {
