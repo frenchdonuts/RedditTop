@@ -24,6 +24,7 @@
 		5462287520222C3F00B29994 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5462287420222C3F00B29994 /* LoadingTableViewCell.xib */; };
 		54AD2C3C202193AC00A82254 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */; };
 		54AD2C3E20219A1C00A82254 /* Data+TimeAgoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */; };
+		54C7203520227B47005F5C71 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7203420227B47005F5C71 /* ImageViewController.swift */; };
 		54D2E94C20204641000DAF4F /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94B20204641000DAF4F /* Paginator.swift */; };
 		54D2E95020204CC9000DAF4F /* BasicInMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */; };
 		54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95120204D92000DAF4F /* ImageCache.swift */; };
@@ -68,6 +69,7 @@
 		5462287420222C3F00B29994 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTableViewCell.xib; sourceTree = "<group>"; };
 		54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+TimeAgoString.swift"; sourceTree = "<group>"; };
+		54C7203420227B47005F5C71 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		54D2E94B20204641000DAF4F /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
 		54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInMemoryImageCache.swift; sourceTree = "<group>"; };
 		54D2E95120204D92000DAF4F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */,
 				54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */,
 				5462287420222C3F00B29994 /* LoadingTableViewCell.xib */,
+				54C7203420227B47005F5C71 /* ImageViewController.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */,
 				54073325201EFFC700F93451 /* Thing.swift in Sources */,
 				54D2E95A2020596B000DAF4F /* RedditTopViewModel.swift in Sources */,
+				54C7203520227B47005F5C71 /* ImageViewController.swift in Sources */,
 				540732FD201EF5CA00F93451 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
