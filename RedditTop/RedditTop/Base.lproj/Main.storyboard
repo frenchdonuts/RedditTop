@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="RedditTop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ohN-7A-kn1">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RMS-xA-48q"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ohN-7A-kn1" secondAttribute="bottom" id="0L0-AY-Abp"/>
+                            <constraint firstItem="ohN-7A-kn1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="DnR-mT-O8M"/>
+                            <constraint firstItem="ohN-7A-kn1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lpe-gS-Lr9"/>
+                            <constraint firstAttribute="trailing" secondItem="ohN-7A-kn1" secondAttribute="trailing" id="uA4-Eq-3gO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ohN-7A-kn1" id="Vn5-kh-S6a"/>
+                        <segue destination="qxl-K1-7Ci" kind="presentation" identifier="showImageSegue" modalTransitionStyle="crossDissolve" id="E2p-D8-b7o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="3ZO-sf-ouG">
+            <objects>
+                <viewController id="qxl-K1-7Ci" customClass="ImageViewController" customModule="RedditTop" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5CA-cT-fe1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="al6-OL-NnC">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hET-X0-s18">
+                                <rect key="frame" x="322" y="30" width="43" height="43"/>
+                                <state key="normal" backgroundImage="icon-download"/>
+                                <connections>
+                                    <action selector="onDownloadButtonAction:" destination="qxl-K1-7Ci" eventType="touchUpInside" id="dgL-aN-KGh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWa-vw-tGx">
+                                <rect key="frame" x="10" y="30" width="43" height="43"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="1mP-KL-ULY"/>
+                                    <constraint firstAttribute="width" constant="43" id="9TO-ea-VgA"/>
+                                </constraints>
+                                <state key="normal" image="icon-close"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="21"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onCloseButtonAction:" destination="qxl-K1-7Ci" eventType="touchUpInside" id="JiS-GI-1Hn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hWa-vw-tGx" firstAttribute="top" secondItem="KKE-4m-Kd1" secondAttribute="top" constant="10" id="8Zu-u9-P7o"/>
+                            <constraint firstItem="KKE-4m-Kd1" firstAttribute="trailing" secondItem="al6-OL-NnC" secondAttribute="trailing" id="AUR-TE-mRv"/>
+                            <constraint firstItem="KKE-4m-Kd1" firstAttribute="trailing" secondItem="hET-X0-s18" secondAttribute="trailing" constant="10" id="Hhp-Vj-y9a"/>
+                            <constraint firstItem="hWa-vw-tGx" firstAttribute="leading" secondItem="KKE-4m-Kd1" secondAttribute="leading" constant="10" id="NCo-gs-h0d"/>
+                            <constraint firstItem="al6-OL-NnC" firstAttribute="top" secondItem="KKE-4m-Kd1" secondAttribute="top" id="YAk-SG-HOH"/>
+                            <constraint firstItem="KKE-4m-Kd1" firstAttribute="bottom" secondItem="al6-OL-NnC" secondAttribute="bottom" id="ZqN-14-cBL"/>
+                            <constraint firstItem="al6-OL-NnC" firstAttribute="leading" secondItem="KKE-4m-Kd1" secondAttribute="leading" id="hEi-8v-QKT"/>
+                            <constraint firstItem="hET-X0-s18" firstAttribute="top" secondItem="KKE-4m-Kd1" secondAttribute="top" constant="10" id="kkg-iD-b7P"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KKE-4m-Kd1"/>
+                    </view>
+                    <connections>
+                        <outlet property="downloadButton" destination="hET-X0-s18" id="2FT-Fb-tIp"/>
+                        <outlet property="imageView" destination="al6-OL-NnC" id="oyh-9x-fxF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2Y-tz-6Vy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1066" y="134"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="icon-close" width="23" height="22"/>
+        <image name="icon-download" width="43" height="43"/>
+    </resources>
+</document>
