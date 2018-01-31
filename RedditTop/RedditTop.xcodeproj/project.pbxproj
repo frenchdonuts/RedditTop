@@ -193,6 +193,17 @@
 			path = Service;
 			sourceTree = "<group>";
 		};
+		54218066202283CB00EB4C3E /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				54D2E95B20205993000DAF4F /* LinkTableViewCell.swift */,
+				54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */,
+				54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */,
+				5462287420222C3F00B29994 /* LoadingTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		54D2E94A202045F2000DAF4F /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,12 +241,9 @@
 		54D2E958202058B5000DAF4F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				54218066202283CB00EB4C3E /* Cells */,
 				54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */,
 				540732FE201EF5CA00F93451 /* MainViewController.swift */,
-				54D2E95B20205993000DAF4F /* LinkTableViewCell.swift */,
-				54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */,
-				54D2E95D2020681F000DAF4F /* LoadingTableViewCell.swift */,
-				5462287420222C3F00B29994 /* LoadingTableViewCell.xib */,
 				54C7203420227B47005F5C71 /* ImageViewController.swift */,
 			);
 			path = UI;
