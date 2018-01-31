@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Thing {
+class Thing {
     enum Kind: String {
         case unknown = "unknown"
         case listing = "Listing"

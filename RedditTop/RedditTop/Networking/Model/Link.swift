@@ -16,10 +16,9 @@ class Link: Object, Votable, Created {
     var likes: Bool?
     var author: String = ""
     var title: String = ""
-    var selftextHtml: String = ""
     var numComments: Int = 0
     var thumbnail: String = ""
-    var score: Int = 0
+    var url: String = ""
 
     init(json: [String: Any]) {
         created = json["created"] as? Double ?? 0
@@ -29,10 +28,8 @@ class Link: Object, Votable, Created {
         likes = json["likes"] as? Bool ?? false
         author = json["author"] as? String ?? ""
         title = json["title"] as? String ?? ""
-        selftextHtml = json["selftextHtml"] as? String ?? ""
-        selftextHtml = json["selftextHtml"] as? String ?? ""
-        numComments = json["numComments"] as? Int ?? 0
+        numComments = json["num_comments"] as? Int ?? 0
         thumbnail = json["thumbnail"] as? String ?? ""
-        score = json["score"] as? Int ?? 0
+        url = json["url"] as? String ?? ""
     }
 }

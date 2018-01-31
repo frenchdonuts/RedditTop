@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Listing: Object {
+class Listing: Object {
     var after: String?
     var before: String?
     var count: Int = 0
