@@ -9,7 +9,8 @@
 import Foundation
 
 extension URL {
-    var isLinkToImage: Bool {
-        return ["jpg", "png", "gif"].contains(self.pathExtension)
+    var isImageUrl: Bool {
+        return ["png", "jpg"].contains(self.pathExtension)
     }
+
 }
