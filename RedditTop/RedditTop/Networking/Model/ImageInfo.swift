@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct ImageInfo: Codable {
+    var url: String
+    var width: Int
+    var height: Int
+}

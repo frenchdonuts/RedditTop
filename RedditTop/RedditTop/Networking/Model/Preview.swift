@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+struct Preview: Codable {
+    var images: [Image]
+}

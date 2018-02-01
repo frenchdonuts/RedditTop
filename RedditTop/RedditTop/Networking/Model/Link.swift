@@ -8,30 +8,38 @@
 
 import Foundation
 
-class Link: Object, Votable, Created {
-    var created: Double = 0
-    var createdUtc: Double = 0
-    var ups: Int = 0
-    var downs: Int = 0
-    var likes: Bool?
-    var author: String = ""
-    var title: String = ""
-    var numComments: Int = 0
-    var thumbnail: String = ""
-    var url: String = ""
-    var isSelf: Bool = false
+struct Link: Codable {
+    var created: Double
+    var author: String
+    var title: String
+    var numComments: Int
+    var thumbnail: String
+    var url: String
+    var preview: Preview?
 
-    init(json: [String: Any]) {
-        created = json["created"] as? Double ?? 0
-        createdUtc = json["created"] as? Double ?? 0
-        ups = json["ups"] as? Int ?? 0
-        downs = json["downs"] as? Int ?? 0
-        likes = json["likes"] as? Bool ?? false
-        author = json["author"] as? String ?? ""
-        title = json["title"] as? String ?? ""
-        numComments = json["num_comments"] as? Int ?? 0
-        thumbnail = json["thumbnail"] as? String ?? ""
-        url = json["url"] as? String ?? ""
-        isSelf = json["is_self"] as? Bool ?? false
+    enum CodingKeys: String, CodingKey {
+        case created
+        case author
+        case title
+        case numComments = "num_comments"
+        case thumbnail
+        case url
+        case preview
+    }
+
+    var imageURL: URL? {
+        guard let str = preview?.images.first?.source.url else { return nil }
+        return URL(string: str)
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        preview = try values.decodeIfPresent(Preview.self, forKey: .preview)
+        created = try values.decode(Double.self, forKey: .created)
+        author = try values.decode(String.self, forKey: .author)
+        title = try values.decode(String.self, forKey: .title)
+        numComments = try values.decode(Int.self, forKey: .numComments)
+        thumbnail = try values.decode(String.self, forKey: .thumbnail)
+        url = try values.decode(String.self, forKey: .url)
     }
 }

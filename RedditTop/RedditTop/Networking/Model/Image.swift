@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+struct Image: Codable {
+    var source: ImageInfo
+    var resolutions: [ImageInfo]
+}
