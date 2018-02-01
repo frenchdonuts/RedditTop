@@ -35,7 +35,6 @@ class LinkTableViewCell: UITableViewCell {
 
     private func setupGestureRecognizer() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapImageAction))
-        tapRecognizer.isEnabled = false
         thumbnailImageView.isUserInteractionEnabled = true
         thumbnailImageView.addGestureRecognizer(tapRecognizer)
         self.tapRecognizer = tapRecognizer
@@ -49,7 +48,6 @@ class LinkTableViewCell: UITableViewCell {
         commentsLabel.text = nil
         authorLabel.text = nil
         timeAgoLabel.text = nil
-        tapRecognizer?.isEnabled = false
     }
 
     func setup(for link:Link) {
@@ -58,7 +56,6 @@ class LinkTableViewCell: UITableViewCell {
             thumbnailImageView.image = UIImage(named:"selfPlaceholder")
         case "image":
             thumbnailImageView.image = UIImage(named:"imagePlaceholder")
-            tapRecognizer?.isEnabled = true
             break
         default:
             if let str = link.thumbnail.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),

@@ -62,19 +62,19 @@ extension UIImageView {
         setupActivityIndicatorIfNeeded()
         backgroundColor = UIColor.black
         activityIndicatorView?.startAnimating()
-        downloadingTask = ImageDownloader.downloadImage(with: url) { [unowned self] (downloadedImage, error) in
+        downloadingTask = ImageDownloader.downloadImage(with: url) { [weak self] (downloadedImage, error) in
             DispatchQueue.main.async {
-                self.activityIndicatorView?.stopAnimating()
-                self.backgroundColor = UIColor.clear
+                self?.activityIndicatorView?.stopAnimating()
+                self?.backgroundColor = UIColor.clear
                 guard error == nil, let downloadedImage = downloadedImage else {
-                    self.image = placeHolder
-                    self.downloadingTask = nil
+                    self?.image = placeHolder
+                    self?.downloadingTask = nil
                     completion?(nil)
                     return
                 }
                 UIImageView.cache[url] = downloadedImage
-                self.image = downloadedImage
-                self.downloadingTask = nil
+                self?.image = downloadedImage
+                self?.downloadingTask = nil
                 completion?(downloadedImage)
             }
         }

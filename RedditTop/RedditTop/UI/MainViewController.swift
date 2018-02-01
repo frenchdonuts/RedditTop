@@ -38,15 +38,15 @@ class MainViewController: UIViewController {
     }
 
     private func setupViewModel() {
-        let bond = Bond<Bool>() { [unowned self] v in
+        let bond = Bond<Bool>() { [weak self] v in
             DispatchQueue.main.async {
                 if !v {
-                    self.tableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
         }
-        viewModel.onTapImageHandler = { [unowned self] url in
-            self.performSegue(withIdentifier: "showImageSegue", sender: url)
+        viewModel.onTapImageHandler = { [weak self] url in
+            self?.performSegue(withIdentifier: "showImageSegue", sender: url)
         }
         viewModel.refreshing >>> refreshControl
         viewModel.refreshing >>> bond

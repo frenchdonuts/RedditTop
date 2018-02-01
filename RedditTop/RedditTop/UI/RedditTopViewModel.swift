@@ -25,10 +25,10 @@ class RedditTopViewModel: NSObject, Bondable {
     override init() {
         super.init()
         setupPaginator()
-        designatedBond = Bond<Bool>() { [unowned self] v in
+        designatedBond = Bond<Bool>() { [weak self] v in
             DispatchQueue.main.async {
                 if v {
-                    self.refresh()
+                    self?.refresh()
                 }
             }
         }
@@ -44,11 +44,11 @@ class RedditTopViewModel: NSObject, Bondable {
     }
 
     private func setupPaginator() {
-        paginator.onUpdatedHandler = { [unowned self]
+        paginator.onUpdatedHandler = { [weak self]
             (numberOfNewItems) -> Void in
             guard numberOfNewItems > 0 else { return }
             DispatchQueue.main.async {
-                self.refreshing.value = false
+                self?.refreshing.value = false
             }
         }
 
@@ -82,9 +82,10 @@ extension RedditTopViewModel: UITableViewDataSource {
         }
         let link = paginator.items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as! LinkTableViewCell
-        cell.onTapImageHandler = { [unowned self] in
+        cell.onTapImageHandler = { [weak self] in
             guard let url = URL(string: link.url) else { return }
-            self.onTapImageHandler?(url)
+            guard url.isLinkToImage else { return }
+            self?.onTapImageHandler?(url)
         }
         cell.setup(for: link)
         return cell

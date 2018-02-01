@@ -1,5 +1,5 @@
 //
-//  URL+FileExtensions.swift
+//  URL+Helpers.swift
 //  RedditTop
 //
 //  Created by Alexander Kharevich on 1/31/18.
@@ -10,6 +10,6 @@ import Foundation
 
 extension URL {
     var isLinkToImage: Bool {
-        return ["jpg", "png", "gif"].contains(self.lastPathComponent)
+        return ["jpg", "png", "gif"].contains(self.pathExtension)
     }
 }

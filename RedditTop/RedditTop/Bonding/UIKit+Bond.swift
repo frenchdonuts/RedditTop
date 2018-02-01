@@ -19,8 +19,8 @@ class ControlDynamic<T, U: ControlDynamicHelper> : Dynamic<T> where U.T == T {
     init(helper: U) {
         self.helper = helper
         super.init(helper.value)
-        self.helper.listener =  { [unowned self] in
-            self.value = $0
+        self.helper.listener =  { [weak self] in
+            self?.value = $0
         }
     }
 }
@@ -63,12 +63,12 @@ extension UIRefreshControl: Dynamical, Bondable {
         if let b = objc_getAssociatedObject(self, &designatedBondHandleUIRefreshControl) as? Bond<Bool> {
             return b
         } else {
-            let b = Bond<Bool>() { [unowned self] v in
+            let b = Bond<Bool>() { [weak self] v in
                 DispatchQueue.main.async {
                     if v {
-                        self.beginRefreshing()
+                        self?.beginRefreshing()
                     } else {
-                        self.endRefreshing()
+                        self?.endRefreshing()
                     }
                 }
             }

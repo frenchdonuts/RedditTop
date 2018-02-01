@@ -19,6 +19,7 @@ class Link: Object, Votable, Created {
     var numComments: Int = 0
     var thumbnail: String = ""
     var url: String = ""
+    var isSelf: Bool = false
 
     init(json: [String: Any]) {
         created = json["created"] as? Double ?? 0
@@ -31,5 +32,6 @@ class Link: Object, Votable, Created {
         numComments = json["num_comments"] as? Int ?? 0
         thumbnail = json["thumbnail"] as? String ?? ""
         url = json["url"] as? String ?? ""
+        isSelf = json["is_self"] as? Bool ?? false
     }
 }
