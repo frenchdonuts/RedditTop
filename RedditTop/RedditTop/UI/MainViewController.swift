@@ -9,7 +9,7 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    let viewModel = RedditTopViewModel()
+    var viewModel = RedditTopViewModel()
     let refreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var updatedBond:Bond<Bool>?
@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
 
     private func setupTableView() {
         tableView.dataSource = viewModel
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 148
         tableView.register(UINib(nibName:"LinkTableViewCell", bundle: nil), forCellReuseIdentifier: "LinkTableViewCell")
         tableView.register(UINib(nibName:"LoadingTableViewCell", bundle: nil), forCellReuseIdentifier: "LoadingTableViewCell")
         tableView.addSubview(refreshControl)
@@ -61,19 +63,25 @@ class MainViewController: UIViewController {
             vc.imageUrl = url
         }
     }
+
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        viewModel.saveState()
+        let contentOffset = tableView.contentOffset
+        coder.encode(contentOffset, forKey: "contentOffset")
+    }
+
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        viewModel.restoreState()
+        let contentOffset = coder.decodeCGPoint(forKey: "contentOffset")
+        tableView.setContentOffset(contentOffset, animated: false)
+    }
 }
 
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-    }
-
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         viewModel.loadMoreIfNeeded(indexPath: indexPath)
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 148
     }
 }
 

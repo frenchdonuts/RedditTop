@@ -36,4 +36,14 @@ class ImageViewController: UIViewController {
             self?.downloadButton.isHidden = false
         }
     }
+
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(imageView.image, forKey: "image")
+    }
+
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        imageView.image = coder.decodeObject(of: UIImage.self, forKey: "image")
+    }
 }
