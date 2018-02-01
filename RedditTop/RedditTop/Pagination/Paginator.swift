@@ -8,12 +8,17 @@
 
 import Foundation
 
-struct Cursors {
+struct Cursors: Codable {
     var after: String?
     var before: String?
+
+    init(after: String? = nil, before: String? = nil) {
+        self.after = after
+        self.before = before
+    }
 }
 
-class Paginator<T> {
+class Paginator<T: Codable> : Codable {
     typealias completionHandler = ([T], Cursors?, Error?) -> Void
     typealias updateHandler = (_ after: String? , _ completion: @escaping completionHandler) -> Void
     var requestInProcess = false
@@ -32,11 +37,30 @@ class Paginator<T> {
         return true
     }
 
+    enum CodingKeys: String, CodingKey {
+        case items
+        case cursors
+    }
+
+    init() {
+        
+    }
+
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        cursors = try values.decode(Cursors.self, forKey: .cursors)
+        items = try values.decode([T].self, forKey: .items)
+    }
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(cursors, forKey: .cursors)
+        try container.encode(items, forKey: .items)
+    }
+
     func reset() {
         guard !requestInProcess else { return }
-
         requestInProcess = true
-
         if let request = updateRequest {
             request(nil) { [weak self]
                 (newItems, newCursors, error) -> Void in

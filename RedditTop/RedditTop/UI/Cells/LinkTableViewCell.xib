@@ -34,7 +34,7 @@
                             <constraint firstAttribute="width" constant="128" id="tFC-aM-kgv"/>
                         </constraints>
                     </imageView>
-                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This spot on I-80 in Wyoming is known as the Highway to Heaven" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5Y-ID-rl5">
+                    <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This spot on I-80 in Wyoming is known as the Highway to Heaven" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="M5Y-ID-rl5">
                         <rect key="frame" x="146" y="28.5" width="199.5" height="59.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -94,8 +94,10 @@
                     <constraint firstItem="M5Y-ID-rl5" firstAttribute="top" secondItem="gtb-BJ-hnb" secondAttribute="bottom" constant="4" id="OW1-TH-fI5"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M5Y-ID-rl5" secondAttribute="trailing" constant="10" id="PM0-5j-thY"/>
                     <constraint firstItem="Rjw-CE-gxM" firstAttribute="centerY" secondItem="gtb-BJ-hnb" secondAttribute="centerY" id="T6Z-ju-Z6m"/>
+                    <constraint firstItem="Uri-8L-dYX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HDa-d0-Ds2" secondAttribute="top" constant="10" id="ZKZ-3k-9Rd"/>
                     <constraint firstItem="gtb-BJ-hnb" firstAttribute="leading" secondItem="Uri-8L-dYX" secondAttribute="trailing" constant="9" id="aDs-B4-1b5"/>
                     <constraint firstItem="Rjw-CE-gxM" firstAttribute="leading" secondItem="gtb-BJ-hnb" secondAttribute="trailing" constant="4" id="axQ-jv-PCO"/>
+                    <constraint firstItem="OhS-Yv-OWJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Uri-8L-dYX" secondAttribute="bottom" constant="7.5" id="eFa-vy-cf3"/>
                     <constraint firstAttribute="bottom" secondItem="OhS-Yv-OWJ" secondAttribute="bottom" constant="1" id="fAH-Uk-u9u"/>
                     <constraint firstItem="KSI-s3-exc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rjw-CE-gxM" secondAttribute="trailing" constant="5" id="gXl-gA-jal"/>
                     <constraint firstItem="jd1-Ph-wPS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="M5Y-ID-rl5" secondAttribute="bottom" constant="4" id="l0N-hF-DCn"/>

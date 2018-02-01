@@ -31,8 +31,19 @@ class ImageViewController: UIViewController {
 
     private func loadImage() {
         guard let imageUrl = self.imageUrl else { return }
-        imageView.setImage(with: imageUrl, placeHolder: nil) { [unowned self] (image) in
-            self.downloadButton.isHidden = false
+        imageView.setImage(with: imageUrl, placeHolder: nil) { [weak self] (image) in
+            guard image != nil else { return }
+            self?.downloadButton.isHidden = false
         }
+    }
+
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(imageView.image, forKey: "image")
+    }
+
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        imageView.image = coder.decodeObject(of: UIImage.self, forKey: "image")
     }
 }

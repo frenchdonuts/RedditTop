@@ -69,13 +69,8 @@ class RedditListingsAPIService {
                 return
             }
             do {
-                if let dataJSON = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any] {
-                    let thing = Thing(json: dataJSON)
-                    completion(thing, nil)
-                } else {
-                    print("Couldn't create a listing object from the JSON")
-                    completion(nil, nil)
-                }
+                let thing = try JSONDecoder().decode(Thing.self, from:responseData)
+                completion(thing, nil)
             } catch {
                 completion(nil, error)
                 return
