@@ -81,6 +81,8 @@ extension UIImageView {
     }
 
     func cancelDownload() {
+        activityIndicatorView?.stopAnimating()
+        backgroundColor = UIColor.clear
         downloadingTask?.cancel()
         downloadingTask = nil
     }
