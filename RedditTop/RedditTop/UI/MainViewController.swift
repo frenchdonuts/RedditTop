@@ -24,11 +24,6 @@ class MainViewController: UIViewController {
         setupViewModel()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        UIImageView.cache.flush()
-    }
-
     private func setupTableView() {
         tableView.dataSource = viewModel
         tableView.rowHeight = UITableViewAutomaticDimension

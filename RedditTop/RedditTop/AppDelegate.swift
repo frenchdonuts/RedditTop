@@ -48,5 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
         return true
     }
+
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        UIImageView.cache.flush()
+    }
 }
 
