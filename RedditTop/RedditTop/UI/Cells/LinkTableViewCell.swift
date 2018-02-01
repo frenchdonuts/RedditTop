@@ -68,7 +68,7 @@ class LinkTableViewCell: UITableViewCell {
         titleLabel.text = link.title
         authorLabel.text = link.author
         commentsLabel.text = "\(link.numComments) comments"
-        let date = Date(timeIntervalSince1970: link.created)
+        let date = Date(timeIntervalSince1970: TimeInterval(link.created))
         timeAgoLabel.text = date.timeAgoString()
     }
 }
