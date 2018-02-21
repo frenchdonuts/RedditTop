@@ -78,3 +78,23 @@ extension UIRefreshControl: Dynamical, Bondable {
     }
 }
 
+private var designatedBondHandleUITableView: UInt8 = 0
+
+
+extension UITableView: Bondable {
+    var designatedBond: Bond<Bool>? {
+        if let b = objc_getAssociatedObject(self, &designatedBondHandleUIRefreshControl) as? Bond<Bool> {
+            return b
+        } else {
+            let b = Bond<Bool>() { [weak self] v in
+                DispatchQueue.main.async {
+                    if !v {
+                        self?.reloadData()
+                    }
+                }
+            }
+            objc_setAssociatedObject(self, &designatedBondHandleUIRefreshControl, b, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            return b
+        }
+    }
+}
