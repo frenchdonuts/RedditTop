@@ -6,4 +6,11 @@
 //  Copyright © 2018 Alexander Kharevich. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIImage {
+    var memorySize: Int {
+        guard let cgImage = self.cgImage else { return 0 }
+        return cgImage.height * cgImage.bytesPerRow
+    }
+}
