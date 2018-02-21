@@ -8,11 +8,37 @@
 
 import UIKit
 
-protocol Cache {
-    associatedtype CachableValue
-    associatedtype CachableKey
-    func value(for key: CachableKey) -> CachableValue?
-    func set(value: CachableValue, for key: CachableKey)
-    func flush()
-    subscript(key: CachableKey) -> CachableValue? { get set }
+private let minimumCapacity = 500
+
+class Cache<K: Hashable,V> {
+    private var cacheDict: [K: V] = Dictionary<K,V>(minimumCapacity: minimumCapacity)
+
+    func value(for key: K) -> V? {
+        return cacheDict[key]
+    }
+
+    func set(value: V, for key: K) {
+        cacheDict[key] = value
+    }
+
+    func remove(for key: K) {
+        cacheDict[key] = nil
+    }
+
+    func flush() {
+        cacheDict.removeAll()
+    }
+
+    subscript(key: K) -> V? {
+        get {
+            return value(for: key)
+        }
+        set {
+            if let newValue = newValue {
+                set(value: newValue, for: key)
+            } else {
+                remove(for: key)
+            }
+        }
+    }
 }
