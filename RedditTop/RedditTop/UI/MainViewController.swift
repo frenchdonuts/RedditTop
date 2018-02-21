@@ -24,6 +24,7 @@ class MainViewController: UIViewController {
 
     private func setupTableView() {
         tableView.dataSource = viewModel
+        tableView.delegate = viewModel
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44
         tableView.register(UINib(nibName:"LinkTableViewCell", bundle: nil), forCellReuseIdentifier: "LinkTableViewCell")
@@ -66,8 +67,3 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel.loadMoreIfNeeded(indexPath: indexPath)
-    }
-}

@@ -114,3 +114,9 @@ extension RedditTopViewModel: UITableViewDataSource {
         return cell
     }
 }
+
+extension RedditTopViewModel: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        loadMoreIfNeeded(indexPath: indexPath)
+    }
+}
