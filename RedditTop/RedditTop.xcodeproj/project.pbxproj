@@ -206,6 +206,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5455840E203E297E00CCD408 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				54558403203D48A100CCD408 /* LinkedList.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
 		54D2E94A202045F2000DAF4F /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,7 +229,6 @@
 				54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */,
 				542180722022E81500EB4C3E /* URL+Helpers.swift */,
 				54558401203D424A00CCD408 /* UIImage+MemorySize.swift */,
-				54558403203D48A100CCD408 /* LinkedList.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -229,6 +236,7 @@
 		54D2E94E20204CB3000DAF4F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
+				5455840E203E297E00CCD408 /* Data Structures */,
 				54D2E95120204D92000DAF4F /* Cache.swift */,
 				545583FF203D41FB00CCD408 /* ImageCache.swift */,
 			);
