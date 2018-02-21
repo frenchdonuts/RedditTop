@@ -59,7 +59,7 @@ class LinkTableViewCell: UITableViewCell {
             break
         default:
             if let str = link.thumbnail.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed),
-                let path = URL(string: str) {
+                let path = URL(string: str), path.isImageUrl {
                 thumbnailImageView.setImage(with: path, placeHolder: UIImage(named:"selfPlaceholder"))
             }
             break
