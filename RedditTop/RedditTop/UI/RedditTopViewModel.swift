@@ -81,8 +81,8 @@ class RedditTopViewModel: NSObject, Bondable {
         guard let unArch = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else { return }
         do {
             let restoredPaginator = try PropertyListDecoder().decode(Paginator<Link>.self, from: unArch )
-            self.paginator.cursors = restoredPaginator.cursors
-            self.paginator.items = restoredPaginator.items
+            paginator.cursors = restoredPaginator.cursors
+            paginator.items = restoredPaginator.items
             refreshing.value = false
         } catch {
             print("Retrieve Failed \(error.localizedDescription)")
