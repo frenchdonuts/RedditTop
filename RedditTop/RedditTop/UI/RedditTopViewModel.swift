@@ -12,7 +12,7 @@ class RedditTopViewModel: NSObject, Bondable {
     private var paginator = Paginator<Link>()
     var refreshing: Dynamic<Bool> = Dynamic(false)
     var designatedBond: Bond<Bool>?
-    var onTapImageHandler: ((URL)->Void)?
+    var onTapImageHandler: ((IndexPath, Link)->Void)?
 
     var items: [Link] {
         return paginator.items
@@ -90,7 +90,6 @@ class RedditTopViewModel: NSObject, Bondable {
     }
 }
 
-
 extension RedditTopViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if paginator.moreAvailable {
@@ -106,10 +105,10 @@ extension RedditTopViewModel: UITableViewDataSource {
         }
         let link = paginator.items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LinkTableViewCell", for: indexPath) as! LinkTableViewCell
-        cell.onTapImageHandler = { [weak self] in
-            guard let url = link.imageURL else { return }
-            guard url.isImageUrl else { return }
-            self?.onTapImageHandler?(url)
+        if let url = URL(string: link.url), url.isImageUrl {
+            cell.onTapImageHandler = { [weak self] in
+                self?.onTapImageHandler?(indexPath, link)
+            }
         }
         cell.setup(for: link)
         return cell
