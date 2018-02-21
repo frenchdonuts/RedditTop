@@ -12,8 +12,8 @@ private var downloadingTaskHandle: UInt8 = 0
 private var activityIndicatorViewHandle: UInt8 = 0
 
 extension UIImageView {
-    static let cache = BasicInMemoryImageCache()
-
+    static let imageCache = ImageCache()
+    static var taskCache = Cache<URL,URLSessionDownloadTask>()
     private var activityIndicatorView: UIActivityIndicatorView? {
         get {
             guard let activityIndicator = objc_getAssociatedObject(self, &activityIndicatorViewHandle) as? UIActivityIndicatorView else {
@@ -54,7 +54,7 @@ extension UIImageView {
 
     func setImage(with url: URL, placeHolder: UIImage?, completion: ((UIImage?)->Void)? = nil) {
         cancelDownload()
-        if let cachedImage = UIImageView.cache[url] {
+        if let cachedImage = UIImageView.imageCache[url] {
             image = cachedImage
             completion?(cachedImage)
             return
@@ -62,19 +62,24 @@ extension UIImageView {
         setupActivityIndicatorIfNeeded()
         backgroundColor = UIColor.black
         activityIndicatorView?.startAnimating()
+        if let cachedTask = UIImageView.taskCache[url] {
+            downloadingTask = cachedTask
+            downloadingTask?.resume()
+            UIImageView.taskCache[url] = nil
+            return
+        }
         downloadingTask = ImageDownloader.downloadImage(with: url) { [weak self] (downloadedImage, error) in
             DispatchQueue.main.async {
                 self?.activityIndicatorView?.stopAnimating()
+                UIImageView.imageCache[url] = downloadedImage
+                self?.downloadingTask = nil
                 self?.backgroundColor = UIColor.clear
                 guard error == nil, let downloadedImage = downloadedImage else {
                     self?.image = placeHolder
-                    self?.downloadingTask = nil
                     completion?(nil)
                     return
                 }
-                UIImageView.cache[url] = downloadedImage
                 self?.image = downloadedImage
-                self?.downloadingTask = nil
                 completion?(downloadedImage)
             }
         }
@@ -83,7 +88,12 @@ extension UIImageView {
     func cancelDownload() {
         activityIndicatorView?.stopAnimating()
         backgroundColor = UIColor.clear
-        downloadingTask?.cancel()
-        downloadingTask = nil
+        guard let downloadingTask = self.downloadingTask else { return }
+        self.downloadingTask = nil
+        guard let url = downloadingTask.originalRequest?.url else {
+            return
+        }
+        downloadingTask.suspend()
+        UIImageView.taskCache[url] = downloadingTask
     }
 }

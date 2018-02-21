@@ -24,13 +24,15 @@
 		5421806F2022E29100EB4C3E /* ImageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5421806E2022E29100EB4C3E /* ImageInfo.swift */; };
 		542180712022E45C00EB4C3E /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542180702022E45C00EB4C3E /* Image.swift */; };
 		542180732022E81500EB4C3E /* URL+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 542180722022E81500EB4C3E /* URL+Helpers.swift */; };
+		54558400203D41FB00CCD408 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545583FF203D41FB00CCD408 /* ImageCache.swift */; };
+		54558402203D424A00CCD408 /* UIImage+MemorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54558401203D424A00CCD408 /* UIImage+MemorySize.swift */; };
+		54558404203D48A100CCD408 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54558403203D48A100CCD408 /* LinkedList.swift */; };
 		5462287520222C3F00B29994 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5462287420222C3F00B29994 /* LoadingTableViewCell.xib */; };
 		54AD2C3C202193AC00A82254 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */; };
 		54AD2C3E20219A1C00A82254 /* Data+TimeAgoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */; };
 		54C7203520227B47005F5C71 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7203420227B47005F5C71 /* ImageViewController.swift */; };
 		54D2E94C20204641000DAF4F /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94B20204641000DAF4F /* Paginator.swift */; };
-		54D2E95020204CC9000DAF4F /* BasicInMemoryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */; };
-		54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95120204D92000DAF4F /* ImageCache.swift */; };
+		54D2E95220204D92000DAF4F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95120204D92000DAF4F /* Cache.swift */; };
 		54D2E95420204EDF000DAF4F /* UIImageView+ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E95320204EDF000DAF4F /* UIImageView+ImageDownloader.swift */; };
 		54D2E957202050E5000DAF4F /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E956202050E5000DAF4F /* ImageDownloader.swift */; };
 		54D2E95A2020596B000DAF4F /* RedditTopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */; };
@@ -71,13 +73,15 @@
 		5421806E2022E29100EB4C3E /* ImageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageInfo.swift; sourceTree = "<group>"; };
 		542180702022E45C00EB4C3E /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		542180722022E81500EB4C3E /* URL+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+Helpers.swift"; sourceTree = "<group>"; };
+		545583FF203D41FB00CCD408 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		54558401203D424A00CCD408 /* UIImage+MemorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MemorySize.swift"; sourceTree = "<group>"; };
+		54558403203D48A100CCD408 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		5462287420222C3F00B29994 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
 		54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTableViewCell.xib; sourceTree = "<group>"; };
 		54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+TimeAgoString.swift"; sourceTree = "<group>"; };
 		54C7203420227B47005F5C71 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		54D2E94B20204641000DAF4F /* Paginator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Paginator.swift; sourceTree = "<group>"; };
-		54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicInMemoryImageCache.swift; sourceTree = "<group>"; };
-		54D2E95120204D92000DAF4F /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		54D2E95120204D92000DAF4F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		54D2E95320204EDF000DAF4F /* UIImageView+ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+ImageDownloader.swift"; sourceTree = "<group>"; };
 		54D2E956202050E5000DAF4F /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		54D2E9592020596B000DAF4F /* RedditTopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedditTopViewModel.swift; sourceTree = "<group>"; };
@@ -128,7 +132,7 @@
 			children = (
 				54D2E95F2020D232000DAF4F /* Bonding */,
 				54D2E955202050D1000DAF4F /* ImageDownloader */,
-				54D2E94E20204CB3000DAF4F /* ImageCache */,
+				54D2E94E20204CB3000DAF4F /* Cache */,
 				54D2E94D20204CAB000DAF4F /* Helpers */,
 				54073320201EF6EA00F93451 /* Networking */,
 				54D2E94A202045F2000DAF4F /* Pagination */,
@@ -202,6 +206,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		5455840E203E297E00CCD408 /* Data Structures */ = {
+			isa = PBXGroup;
+			children = (
+				54558403203D48A100CCD408 /* LinkedList.swift */,
+			);
+			path = "Data Structures";
+			sourceTree = "<group>";
+		};
 		54D2E94A202045F2000DAF4F /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,17 +228,19 @@
 				54D2E95320204EDF000DAF4F /* UIImageView+ImageDownloader.swift */,
 				54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */,
 				542180722022E81500EB4C3E /* URL+Helpers.swift */,
+				54558401203D424A00CCD408 /* UIImage+MemorySize.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		54D2E94E20204CB3000DAF4F /* ImageCache */ = {
+		54D2E94E20204CB3000DAF4F /* Cache */ = {
 			isa = PBXGroup;
 			children = (
-				54D2E95120204D92000DAF4F /* ImageCache.swift */,
-				54D2E94F20204CC9000DAF4F /* BasicInMemoryImageCache.swift */,
+				5455840E203E297E00CCD408 /* Data Structures */,
+				54D2E95120204D92000DAF4F /* Cache.swift */,
+				545583FF203D41FB00CCD408 /* ImageCache.swift */,
 			);
-			path = ImageCache;
+			path = Cache;
 			sourceTree = "<group>";
 		};
 		54D2E955202050D1000DAF4F /* ImageDownloader */ = {
@@ -377,15 +391,17 @@
 				54D2E95420204EDF000DAF4F /* UIImageView+ImageDownloader.swift in Sources */,
 				542180732022E81500EB4C3E /* URL+Helpers.swift in Sources */,
 				54073329201F034F00F93451 /* Link.swift in Sources */,
-				54D2E95020204CC9000DAF4F /* BasicInMemoryImageCache.swift in Sources */,
 				5421806F2022E29100EB4C3E /* ImageInfo.swift in Sources */,
 				54D2E94C20204641000DAF4F /* Paginator.swift in Sources */,
 				540732FF201EF5CA00F93451 /* MainViewController.swift in Sources */,
-				54D2E95220204D92000DAF4F /* ImageCache.swift in Sources */,
+				54558400203D41FB00CCD408 /* ImageCache.swift in Sources */,
+				54D2E95220204D92000DAF4F /* Cache.swift in Sources */,
 				54073325201EFFC700F93451 /* Thing.swift in Sources */,
 				54D2E95A2020596B000DAF4F /* RedditTopViewModel.swift in Sources */,
 				54C7203520227B47005F5C71 /* ImageViewController.swift in Sources */,
 				540732FD201EF5CA00F93451 /* AppDelegate.swift in Sources */,
+				54558404203D48A100CCD408 /* LinkedList.swift in Sources */,
+				54558402203D424A00CCD408 /* UIImage+MemorySize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

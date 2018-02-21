@@ -11,12 +11,10 @@ import UIKit
 class MainViewController: UIViewController {
     var viewModel = RedditTopViewModel()
     let refreshControl = UIRefreshControl()
-    @IBOutlet weak var tableView: UITableView!
-    var updatedBond:Bond<Bool>?
 
-    deinit {
-        updatedBond?.unbindAll()
-    }
+    fileprivate var selectedLink: Link?
+    fileprivate var selectedIndex: IndexPath?
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +24,9 @@ class MainViewController: UIViewController {
 
     private func setupTableView() {
         tableView.dataSource = viewModel
+        tableView.delegate = viewModel
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 148
+        tableView.estimatedRowHeight = 44
         tableView.register(UINib(nibName:"LinkTableViewCell", bundle: nil), forCellReuseIdentifier: "LinkTableViewCell")
         tableView.register(UINib(nibName:"LoadingTableViewCell", bundle: nil), forCellReuseIdentifier: "LoadingTableViewCell")
         tableView.addSubview(refreshControl)
@@ -35,27 +34,21 @@ class MainViewController: UIViewController {
     }
 
     private func setupViewModel() {
-        let bond = Bond<Bool>() { [weak self] v in
-            DispatchQueue.main.async {
-                if !v {
-                    self?.tableView.reloadData()
-                }
-            }
-        }
-        viewModel.onTapImageHandler = { [weak self] url in
-            self?.performSegue(withIdentifier: "showImageSegue", sender: url)
+        viewModel.onTapImageHandler = { [weak self] index, link in
+            self?.selectedIndex = index
+            self?.selectedLink = link
+            self?.performSegue(withIdentifier: "showImageSegue", sender: link)
         }
         viewModel.refreshing >>> refreshControl
-        viewModel.refreshing >>> bond
+        viewModel.refreshing >>> tableView
         refreshControl >>> viewModel
-        self.updatedBond = bond
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let url = sender as? URL else { return }
+        guard let link = sender as? Link, let imageUrl = URL(string: link.url) else { return }
         if segue.identifier == "showImageSegue" {
             let vc = segue.destination as! ImageViewController
-            vc.imageUrl = url
+            vc.imageUrl = imageUrl
         }
     }
 
@@ -71,12 +64,6 @@ class MainViewController: UIViewController {
         viewModel.restoreState()
         let contentOffset = coder.decodeCGPoint(forKey: "contentOffset")
         tableView.setContentOffset(contentOffset, animated: false)
-    }
-}
-
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        viewModel.loadMoreIfNeeded(indexPath: indexPath)
     }
 }
 

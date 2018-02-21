@@ -20,6 +20,10 @@
                 <subviews>
                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Rla-sD-1cx">
                         <rect key="frame" x="177" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="LyB-70-pgo"/>
+                            <constraint firstAttribute="width" constant="20" id="kXu-UB-1Z7"/>
+                        </constraints>
                     </activityIndicatorView>
                 </subviews>
                 <constraints>

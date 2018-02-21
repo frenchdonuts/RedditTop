@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
-        UIImageView.cache.flush()
+        UIImageView.imageCache.flush()
     }
 }
 
