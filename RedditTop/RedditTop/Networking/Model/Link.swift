@@ -32,6 +32,16 @@ struct Link: Codable {
         return URL(string: str)
     }
 
+    init(created: Double, author: String, title: String, numComments: Int, thumbnail: String, url: String,  preview: Preview?) {
+        self.created = created
+        self.author = author
+        self.title = title
+        self.numComments = numComments
+        self.thumbnail = thumbnail
+        self.url = url
+        self.preview = preview
+    }
+
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         preview = try values.decodeIfPresent(Preview.self, forKey: .preview)
