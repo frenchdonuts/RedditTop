@@ -28,6 +28,7 @@ Also include:
 *Please refrain from using external libraries*
 
 **How it's done**:
+
 The project is splitted on four separate layers: Storage Layer, Service Layer, Business Logic Layer and UI Layer.
 1) **Storage Layer** - responses for retrieving/storing the application state and caching an image data. It includes an image cache and base data model structures representing Reddit API models. Image cache is very simple it works like `LRU` policy, inherits from `Cache`  and uses `LinkedList` for storing/retrieving images for particular urls. It allows using different types of caching later without changing the rest of the project. For example it could be improved to use a disk storage, to track an age of items, etc.
 2) **Service Layer** - responses for communication and serialization. The communication part of this layer based on `URLSession`, `URLSessionDownloadTask` and `URLSessionDataTask` classes, the serialization part based on `JSONDecoder` class.
