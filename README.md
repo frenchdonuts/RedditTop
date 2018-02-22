@@ -11,13 +11,17 @@ Create a simple Reddit client that shows the top 50 entries fromwww.reddit.com/t
 - Please refrain from using AFNetworking, instead use NSURLSession
 - Support Landscape
 - Use Storyboards
+
 The app should be able to show data from each entry such as:
+
 - Title (at its full length, so take this into account when sizing your cells)
 - Author
 - entry date, following a format like “x hours ago”
 - A thumbnail for those who have a picture
 - Number of comments
+
 In addition, for those having a picture (besides the thumbnail) , please allow the user to tap on the thumbnail to be sent to the full sized picture. You don’t have to implement the IMGUR API, so just opening the URL would be OK.
+
 Also include:
 - Pagination support
 - Saving pictures in the picture gallery
