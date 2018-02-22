@@ -31,7 +31,7 @@ class Paginator<T: Codable> : Codable {
     }
 
     var isEmpty: Bool {
-        guard !requestInProcess, items.count == 0, !moreAvailable else {
+        guard !requestInProcess, items.isEmpty, !moreAvailable else {
             return false
         }
         return true

@@ -80,7 +80,6 @@ extension UIRefreshControl: Dynamical, Bondable {
 
 private var designatedBondHandleUITableView: UInt8 = 0
 
-
 extension UITableView: Bondable {
     var designatedBond: Bond<Bool>? {
         if let b = objc_getAssociatedObject(self, &designatedBondHandleUIRefreshControl) as? Bond<Bool> {

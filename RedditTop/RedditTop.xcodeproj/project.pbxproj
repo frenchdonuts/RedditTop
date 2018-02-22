@@ -28,6 +28,7 @@
 		54558402203D424A00CCD408 /* UIImage+MemorySize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54558401203D424A00CCD408 /* UIImage+MemorySize.swift */; };
 		54558404203D48A100CCD408 /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54558403203D48A100CCD408 /* LinkedList.swift */; };
 		5462287520222C3F00B29994 /* LoadingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5462287420222C3F00B29994 /* LoadingTableViewCell.xib */; };
+		546CCA67203F288400FE2792 /* PaginatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 546CCA66203F288400FE2792 /* PaginatorTests.swift */; };
 		54AD2C3C202193AC00A82254 /* LinkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */; };
 		54AD2C3E20219A1C00A82254 /* Data+TimeAgoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */; };
 		54C7203520227B47005F5C71 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C7203420227B47005F5C71 /* ImageViewController.swift */; };
@@ -77,6 +78,7 @@
 		54558401203D424A00CCD408 /* UIImage+MemorySize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+MemorySize.swift"; sourceTree = "<group>"; };
 		54558403203D48A100CCD408 /* LinkedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedList.swift; sourceTree = "<group>"; };
 		5462287420222C3F00B29994 /* LoadingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingTableViewCell.xib; sourceTree = "<group>"; };
+		546CCA66203F288400FE2792 /* PaginatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginatorTests.swift; sourceTree = "<group>"; };
 		54AD2C3B202193AC00A82254 /* LinkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LinkTableViewCell.xib; sourceTree = "<group>"; };
 		54AD2C3D20219A1C00A82254 /* Data+TimeAgoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+TimeAgoString.swift"; sourceTree = "<group>"; };
 		54C7203420227B47005F5C71 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				54073311201EF5CA00F93451 /* RedditTopTests.swift */,
+				546CCA66203F288400FE2792 /* PaginatorTests.swift */,
 				54073313201EF5CA00F93451 /* Info.plist */,
 			);
 			path = RedditTopTests;
@@ -409,6 +412,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				546CCA67203F288400FE2792 /* PaginatorTests.swift in Sources */,
 				54073312201EF5CA00F93451 /* RedditTopTests.swift in Sources */,
 				542180692022CE4B00EB4C3E /* Paginator.swift in Sources */,
 			);

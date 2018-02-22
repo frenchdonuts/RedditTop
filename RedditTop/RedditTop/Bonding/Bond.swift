@@ -23,10 +23,6 @@ class Bond<T> {
     var listener: Listener?
     var bondedDynamics: [Dynamic<T>] = []
 
-    init() {
-
-    }
-
     init(_ listener: @escaping Listener) {
         self.listener = listener
     }
